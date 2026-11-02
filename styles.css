@@ -1,0 +1,62 @@
+body {
+
+display : flex;
+height: 100vh;
+justify-content: center;
+align-items: center;
+
+
+
+}
+
+
+.container {
+
+display : flex;
+border: 2px solid black;
+height: 500px;
+width: 500px;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+
+}
+
+.display {
+
+
+width: 450px;
+height : 50px;
+flex-shrink: 0;
+border: 2px solid red;
+border-radius: 30px;
+
+}
+
+.digit {
+
+width: 100px;
+height : 50px;
+border : 2px solid black;
+flex-shrink: 0;
+flex-grow: 0;
+border-radius: 30px;
+text-align: center;
+
+
+
+
+
+}
+
+.digits-operator{
+
+display: flex;
+height : 300px;
+width : 431px;
+flex-wrap: wrap;
+gap : 5px;
+
+    
+}
+
