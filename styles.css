@@ -41,6 +41,9 @@ border-radius: 30px;
 text-align: center;
 font-size: 25px;
 background-color: white;
+display: flex;
+justify-content: center;
+align-items: center;
 
 }
 
@@ -72,3 +75,4 @@ color : #008ADE;
 
 
 }
+
