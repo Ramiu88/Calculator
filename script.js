@@ -28,8 +28,27 @@ let operator;
 
 function operate(numOne,numTwo,operator)
 {
-
     
+if(operator == "+")
+{
+    return addition(numOne,numTwo);
+}
+else if(operator == "-")
+{
+    return substract(a,b);
+}
+else if (operator == "x")
+{
+    return multiply(numOne,numTwo);
+}
+else if(operator == "÷")
+{
+    return divide(a,b);
+}
+else {
+    console.log("Enter a valid operator");
+    return;
+}
   
  
 }
