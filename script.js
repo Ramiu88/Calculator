@@ -22,9 +22,9 @@ return a / b;
 
 }
 
-let operandOne;
-let operandTwo;
-let operator;
+let operandOne = 10;
+let operandTwo = 0
+let operator = "+";
 
 function operate(numOne,numTwo,operator)
 {
@@ -49,6 +49,73 @@ else {
     console.log("Enter a valid operator");
     return;
 }
-  
- 
 }
+
+
+
+const display = document.querySelector(".display");
+const AC = document.querySelector(".clear");
+const digits = document.querySelectorAll(".digit");
+const op = document.querySelectorAll(".op");
+const buttonsDiv = document.querySelector('.digits-operator');
+
+const buttons = buttonsDiv.querySelectorAll('.digit');
+
+buttons.forEach((button) => {
+
+ button.addEventListener("mouseover",function() {
+
+button.style.backgroundColor = "#5E5E5E";
+
+
+ });
+ 
+ button.addEventListener("mouseout",function() {
+
+button.style.backgroundColor = "white";
+
+ });
+ 
+
+})
+
+
+
+display.textContent = operandOne + operator + operandTwo;
+
+
+op.forEach((operator) => {
+
+operator.addEventListener("click",function(event){
+
+operator = event.target.textContent;
+
+});
+
+})
+
+digits.forEach((digit) => {
+
+digit.addEventListener("click",function(event){
+
+operandOne = event.target.textContent;
+
+});
+
+});
+
+
+
+
+AC.addEventListener("click", function(event) {
+
+display.textContent = "";
+
+});
+
+
+
+
+
+
+
