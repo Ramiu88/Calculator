@@ -1,3 +1,9 @@
+let operandOne = 0;
+let operandTwo = 0;
+let operator = "";
+let checkOperatorClick;
+
+
 function addition(a,b) {
 
 return a + b;
@@ -22,9 +28,6 @@ return a / b;
 
 }
 
-let operandOne = 0;
-let operandTwo = 0;
-let operator = "+";
 
 function operate(numOne,numTwo,operator)
 {
@@ -54,7 +57,9 @@ else {
 function changeOperandOne(input)
 {
    
+   
    operandOne+=input;
+   
 
 }
 
@@ -62,6 +67,7 @@ function changeOperandTwo(input)
 {
   
     operandTwo+=input;
+    
 }
 
 
@@ -112,6 +118,9 @@ AC.style.backgroundColor = "white";
 AC.addEventListener("click", function(event) {
 
 display.textContent = "0";
+operandOne = 0;
+operandTwo = 0;
+operator = '';
 
 });
 
@@ -124,7 +133,10 @@ op.forEach((operator) => {
 operator.addEventListener("click",function(event){
 
 operator = event.target.textContent;
+checkOperatorClick = true;
 console.log(operator);
+console.log(typeof operator)
+
 
 });
 
@@ -135,9 +147,22 @@ digits.forEach((digit) => {
 digit.addEventListener("click",function(event){
 
 
-display.textContent += event.target.textContent;
-changeOperandOne(event.target.textContent);
-console.log(operandOne);    
+if(checkOperatorClick == true)
+{
+     let temp = event.target.textContent;
+     display.textContent = '';
+     changeOperandTwo(temp);
+     display.textContent = operandTwo;
+     console.log("operator two : " + operandTwo);    
+}
+
+else {
+     changeOperandOne(event.target.textContent);
+     display.textContent = operandOne;
+     console.log("operator one : " + operandOne);    
+
+
+}
 
 });
 
