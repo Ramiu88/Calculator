@@ -61,6 +61,8 @@ const buttonsDiv = document.querySelector('.digits-operator');
 
 const buttons = buttonsDiv.querySelectorAll('.digit');
 
+// hover effect
+
 buttons.forEach((button) => {
 
  button.addEventListener("mouseover",function() {
@@ -77,11 +79,31 @@ button.style.backgroundColor = "white";
  });
  
 
-})
+});
+
+AC.addEventListener("mouseover",function() {
+
+AC.style.backgroundColor = "#5E5E5E";
 
 
+ });
+ 
+AC.addEventListener("mouseout",function() {
 
-display.textContent = operandOne + operator + operandTwo;
+AC.style.backgroundColor = "white";
+
+ });
+
+// clear display button event listener
+
+AC.addEventListener("click", function(event) {
+
+display.textContent = "";
+
+});
+
+
+// digits and operator events listeners
 
 
 op.forEach((operator) => {
@@ -98,20 +120,14 @@ digits.forEach((digit) => {
 
 digit.addEventListener("click",function(event){
 
-operandOne = event.target.textContent;
+display.textContent = event.target.textContent;
+display.textContent += event.target.textContent;
 
 });
 
 });
 
 
-
-
-AC.addEventListener("click", function(event) {
-
-display.textContent = "";
-
-});
 
 
 
