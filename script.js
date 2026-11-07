@@ -1,5 +1,5 @@
-let operandOne = 0;
-let operandTwo = 0;
+let operandOne = '';
+let operandTwo = '';
 let operator = "";
 let checkOperatorClick;
 
@@ -117,8 +117,8 @@ AC.style.backgroundColor = "white";
 AC.addEventListener("click", function(event) {
 
 display.textContent = "";
-operandOne = 0;
-operandTwo = 0;
+operandOne = '';
+operandTwo = '';
 operator = '';
 checkOperatorClick = false;
 
