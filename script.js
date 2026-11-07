@@ -34,23 +34,21 @@ function operate(numOne,numTwo,operator)
     
 if(operator == "+")
 {
+    console.log("this is inside plus if statement");
     return addition(numOne,numTwo);
 }
 else if(operator == "-")
 {
-    return substract(a,b);
+    return substract(numOne,numTwo);
 }
-else if (operator == "x")
+else if (operator == "×")
 {
+    console.log("this is inside muliplication if statement");
     return multiply(numOne,numTwo);
 }
 else if(operator == "÷")
 {
-    return divide(a,b);
-}
-else {
-    console.log("Enter a valid operator");
-    return;
+    return divide(numOne,numTwo);
 }
 }
 
@@ -75,8 +73,9 @@ function changeOperandTwo(input)
 const display = document.querySelector(".display");
 const AC = document.querySelector(".clear");
 const digits = document.querySelectorAll(".digit");
-const op = document.querySelectorAll(".op");
+const ops = document.querySelectorAll(".op");
 const buttonsDiv = document.querySelector('.digits-operator');
+const equal = document.querySelector(".equal");
 
 const buttons = buttonsDiv.querySelectorAll('.digit');
 
@@ -117,10 +116,11 @@ AC.style.backgroundColor = "white";
 
 AC.addEventListener("click", function(event) {
 
-display.textContent = "0";
+display.textContent = "";
 operandOne = 0;
 operandTwo = 0;
 operator = '';
+checkOperatorClick = false;
 
 });
 
@@ -128,14 +128,14 @@ operator = '';
 // digits and operator events listeners
 
 
-op.forEach((operator) => {
+ops.forEach((op) => {
 
-operator.addEventListener("click",function(event){
+op.addEventListener("click",function(event){
 
 operator = event.target.textContent;
 checkOperatorClick = true;
 console.log(operator);
-console.log(typeof operator)
+console.log(typeof operator);
 
 
 });
@@ -159,7 +159,8 @@ if(checkOperatorClick == true)
 else {
      changeOperandOne(event.target.textContent);
      display.textContent = operandOne;
-     console.log("operator one : " + operandOne);    
+     console.log("operator one : " + operandOne); 
+      
 
 
 }
@@ -167,6 +168,23 @@ else {
 });
 
 });
+
+
+equal.addEventListener("click",function() {
+
+let result = operate(Number(operandOne),Number(operandTwo),operator);
+
+console.log(operandOne);
+console.log(operandTwo);
+console.log(operator)
+console.log(result);
+
+display.textContent = result;
+
+
+
+});
+
 
 
 
