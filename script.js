@@ -3,7 +3,6 @@ let operandTwo = '';
 let operator = "";
 let checkOperatorClick;
 
-
 function addition(a,b) {
 
 return a + b;
@@ -149,9 +148,7 @@ digit.addEventListener("click",function(event){
 
 if(checkOperatorClick == true)
 {
-     let temp = event.target.textContent;
-     display.textContent = '';
-     changeOperandTwo(temp);
+     changeOperandTwo(event.target.textContent);
      display.textContent = operandTwo;
      console.log("operator two : " + operandTwo);    
 }
@@ -160,9 +157,6 @@ else {
      changeOperandOne(event.target.textContent);
      display.textContent = operandOne;
      console.log("operator one : " + operandOne); 
-      
-
-
 }
 
 });
@@ -179,10 +173,17 @@ console.log(operandTwo);
 console.log(operator)
 console.log(result);
 
-display.textContent = result;
+if(Number.isInteger(result) == false)
+{
+    let rounded = result.toFixed(2);
+    display.textContent = rounded;
+}
 
+else {
 
+    display.textContent = result;
 
+}
 });
 
 
