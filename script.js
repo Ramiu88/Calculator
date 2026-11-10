@@ -131,6 +131,14 @@ ops.forEach((op) => {
 
 op.addEventListener("click",function(event){
 
+
+if(operandOne != "" && operandTwo != "" && operator != "")
+{
+    let result = operate(Number(operandOne),Number(operandTwo),operator);
+    display.textContent = result;
+    operandOne = result;
+    operandTwo = '';
+}
 operator = event.target.textContent;
 checkOperatorClick = true;
 console.log(operator);
@@ -182,6 +190,13 @@ else if (Number.isInteger(result) == false)
 {
     let rounded = result.toFixed(2);
     display.textContent = rounded;
+}
+else if(operandOne != "" && operandTwo != "" && operator != "")
+{
+    let result = operate(Number(operandOne),Number(operandTwo),operator);
+    display.textContent = result;
+    operandOne = result;
+    operandTwo = '';
 }
 
 else {
