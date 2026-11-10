@@ -170,21 +170,12 @@ let result = operate(Number(operandOne),Number(operandTwo),operator);
 
 console.log("operand one : " + operandOne);
 console.log("operand two : " + operandTwo);
-console.log( typeof operandTwo);
-console.log(typeof Number(operandTwo));
-console.log("operator : " + operator);
-console.log("result : " + result);
 
 
-if(operator == "÷")
+
+if(operator == "÷" && Number(operandTwo) == 0)
 {
-    console.log("inside division if statement");
-    if(Number(operandTwo) == 0)
-    {
-        console.log("inside operand two equal to zero if statement");
-        display.textContent = "ERROR";
-    }
-    
+    display.textContent = "Cannot divide by zero";  
 }
 
 else if (Number.isInteger(result) == false)
@@ -198,9 +189,6 @@ else {
   display.textContent = result;
 
 }
-
-    
-
 });
 
 
