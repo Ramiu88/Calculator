@@ -153,6 +153,14 @@ digits.forEach((digit) => {
 
 digit.addEventListener("click",function(event){
 
+if(operandOne != "" && operandTwo != "" && operator != "")
+{
+    operandOne = ''
+    operandTwo = ''
+    operator = '';
+    checkOperatorClick = false;
+}
+
 
 if(checkOperatorClick == true)
 {
@@ -178,6 +186,7 @@ let result = operate(Number(operandOne),Number(operandTwo),operator);
 
 console.log("operand one : " + operandOne);
 console.log("operand two : " + operandTwo);
+console.log("operator : " + operator);
 
 
 
@@ -190,13 +199,6 @@ else if (Number.isInteger(result) == false)
 {
     let rounded = result.toFixed(2);
     display.textContent = rounded;
-}
-else if(operandOne != "" && operandTwo != "" && operator != "")
-{
-    let result = operate(Number(operandOne),Number(operandTwo),operator);
-    display.textContent = result;
-    operandOne = result;
-    operandTwo = '';
 }
 
 else {
