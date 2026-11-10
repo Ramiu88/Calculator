@@ -168,12 +168,26 @@ equal.addEventListener("click",function() {
 
 let result = operate(Number(operandOne),Number(operandTwo),operator);
 
-console.log(operandOne);
-console.log(operandTwo);
-console.log(operator)
-console.log(result);
+console.log("operand one : " + operandOne);
+console.log("operand two : " + operandTwo);
+console.log( typeof operandTwo);
+console.log(typeof Number(operandTwo));
+console.log("operator : " + operator);
+console.log("result : " + result);
 
-if(Number.isInteger(result) == false)
+
+if(operator == "÷")
+{
+    console.log("inside division if statement");
+    if(Number(operandTwo) == 0)
+    {
+        console.log("inside operand two equal to zero if statement");
+        display.textContent = "ERROR";
+    }
+    
+}
+
+else if (Number.isInteger(result) == false)
 {
     let rounded = result.toFixed(2);
     display.textContent = rounded;
@@ -181,9 +195,12 @@ if(Number.isInteger(result) == false)
 
 else {
 
-    display.textContent = result;
+  display.textContent = result;
 
 }
+
+    
+
 });
 
 
