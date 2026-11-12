@@ -126,24 +126,32 @@ checkOperatorClick = false;
 
 // digits and operator events listeners
 
-
 ops.forEach((op) => {
 
 op.addEventListener("click",function(event){
 
-
 if(operandOne != "" && operandTwo != "" && operator != "")
 {
     let result = operate(Number(operandOne),Number(operandTwo),operator);
+    if (Number.isInteger(result) == false)
+    {
+    let rounded = result.toFixed(2);
+    result = rounded;
+    }
+    if(operator == "÷" && Number(operandTwo) == 0)
+    {
+      display.textContent = "Can not divide by zero"
+      return;  
+    }   
     display.textContent = result;
-    operandOne = result;
+    operandOne = '';
+    changeOperandOne(result);
     operandTwo = '';
 }
 operator = event.target.textContent;
 checkOperatorClick = true;
 console.log(operator);
 console.log(typeof operator);
-
 
 });
 
@@ -153,13 +161,6 @@ digits.forEach((digit) => {
 
 digit.addEventListener("click",function(event){
 
-if(operandOne != "" && operandTwo != "" && operator != "")
-{
-    operandOne = ''
-    operandTwo = ''
-    operator = '';
-    checkOperatorClick = false;
-}
 
 
 if(checkOperatorClick == true)
@@ -182,11 +183,20 @@ else {
 
 equal.addEventListener("click",function() {
 
+if(operandOne == '' || operandTwo == '')
+{
+    
+    return;
+}
+
+
+
 let result = operate(Number(operandOne),Number(operandTwo),operator);
 
 console.log("operand one : " + operandOne);
 console.log("operand two : " + operandTwo);
 console.log("operator : " + operator);
+console.log(result);
 
 
 
@@ -206,7 +216,9 @@ else {
   display.textContent = result;
 
 }
+
 });
+
 
 
 
