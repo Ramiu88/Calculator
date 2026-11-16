@@ -33,7 +33,6 @@ function operate(numOne,numTwo,operator)
     
 if(operator == "+")
 {
-    console.log("this is inside plus if statement");
     return addition(numOne,numTwo);
 }
 else if(operator == "-")
@@ -42,7 +41,6 @@ else if(operator == "-")
 }
 else if (operator == "×")
 {
-    console.log("this is inside muliplication if statement");
     return multiply(numOne,numTwo);
 }
 else if(operator == "÷")
@@ -143,9 +141,9 @@ if(operandOne != "" && operandTwo != "" && operator != "")
       display.textContent = "Can not divide by zero"
       return;  
     }   
-    display.textContent = result;
     operandOne = '';
     changeOperandOne(result);
+    display.textContent = operandOne;
     operandTwo = '';
 }
 operator = event.target.textContent;
@@ -160,8 +158,6 @@ console.log(typeof operator);
 digits.forEach((digit) => {
 
 digit.addEventListener("click",function(event){
-
-
 
 if(checkOperatorClick == true)
 {
@@ -188,9 +184,6 @@ if(operandOne == '' || operandTwo == '')
     
     return;
 }
-
-
-
 let result = operate(Number(operandOne),Number(operandTwo),operator);
 
 console.log("operand one : " + operandOne);
@@ -199,33 +192,36 @@ console.log("operator : " + operator);
 console.log(result);
 
 
-
 if(operator == "÷" && Number(operandTwo) == 0)
 {
-    display.textContent = "Cannot divide by zero";  
+    display.textContent = "Cannot divide by zero"; 
+    operandOne = '';
+    operandTwo = '';
+    operator = '';
+    checkOperatorClick = false;
 }
 
 else if (Number.isInteger(result) == false)
 {
+    console.log("...");
     let rounded = result.toFixed(2);
     display.textContent = rounded;
+    operandOne = '';
+    operandTwo = '';
+    operator = '';
+    checkOperatorClick = false;
 }
+
 
 else {
 
+  
   display.textContent = result;
+  operandOne = '';
+  operandTwo = '';
+  operator = '';
+  checkOperatorClick = false;
 
 }
 
 });
-
-
-
-
-
-
-
-
-
-
-
