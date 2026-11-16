@@ -1,7 +1,8 @@
 let operandOne = '';
 let operandTwo = '';
 let operator = "";
-let checkOperatorClick;
+let checkOperatorClick = false;
+let checkEqualClick = false;
 
 function addition(a,b) {
 
@@ -64,6 +65,15 @@ function changeOperandTwo(input)
     operandTwo+=input;
     
 }
+function clearAll()
+{
+    display.textContent = '';
+    operandOne = '';
+    operandTwo = '';
+    operator = '';
+    checkOperatorClick = false;
+    checkEqualClick = false;
+}
 
 
 
@@ -113,11 +123,7 @@ AC.style.backgroundColor = "white";
 
 AC.addEventListener("click", function(event) {
 
-display.textContent = "";
-operandOne = '';
-operandTwo = '';
-operator = '';
-checkOperatorClick = false;
+clearAll();
 
 });
 
@@ -127,6 +133,7 @@ checkOperatorClick = false;
 ops.forEach((op) => {
 
 op.addEventListener("click",function(event){
+checkEqualClick = false;
 
 if(operandOne != "" && operandTwo != "" && operator != "")
 {
@@ -138,7 +145,8 @@ if(operandOne != "" && operandTwo != "" && operator != "")
     }
     if(operator == "÷" && Number(operandTwo) == 0)
     {
-      display.textContent = "Can not divide by zero"
+      alert("Can not divide by zero");
+      clearAll();
       return;  
     }   
     operandOne = '';
@@ -158,6 +166,12 @@ console.log(typeof operator);
 digits.forEach((digit) => {
 
 digit.addEventListener("click",function(event){
+
+if(checkEqualClick == true)
+{
+    clearAll();
+}
+
 
 if(checkOperatorClick == true)
 {
@@ -194,11 +208,9 @@ console.log(result);
 
 if(operator == "÷" && Number(operandTwo) == 0)
 {
-    display.textContent = "Cannot divide by zero"; 
-    operandOne = '';
-    operandTwo = '';
-    operator = '';
-    checkOperatorClick = false;
+    alert("Cannot divide by zero")
+    clearAll();
+    
 }
 
 else if (Number.isInteger(result) == false)
@@ -206,10 +218,7 @@ else if (Number.isInteger(result) == false)
     console.log("...");
     let rounded = result.toFixed(2);
     display.textContent = rounded;
-    operandOne = '';
-    operandTwo = '';
-    operator = '';
-    checkOperatorClick = false;
+    
 }
 
 
@@ -217,11 +226,10 @@ else {
 
   
   display.textContent = result;
-  operandOne = '';
-  operandTwo = '';
-  operator = '';
-  checkOperatorClick = false;
+  
 
 }
+
+checkEqualClick = true;
 
 });
