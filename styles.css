@@ -80,3 +80,25 @@ color : #008ADE;
 
 }
 
+.lastLinedigits {
+
+display: flex;
+width: 431px;
+justify-content: space-between;
+
+}
+
+.equal{
+
+margin-left : auto;
+margin-right : 5px;
+
+}
+
+
+.zero {
+
+    margin-left : 108px;
+}
+
+
