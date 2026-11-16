@@ -1,1 +1,1 @@
-# Calculator
+Calculator is the capstone project in the foundation part of [The Odin Project](https://www.theodinproject.com/dashboard).
